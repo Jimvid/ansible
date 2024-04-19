@@ -1,0 +1,40 @@
+- name: Install APT packages
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - tmux
+    - fzf
+    - ripgrep
+  tags:
+    - install
+    - tools
+
+- name: Zoxide
+  become: true
+  shell: curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+  tags:
+    - install
+    - tools
+
+- name: Download Lazygit
+  become: true
+  shell: curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v0.41.0/lazygit_0.41.0_Linux_x86_64.tar.gz"
+  tags:
+    - install
+    - tools
+
+- name: Extract Lazygit
+  become: true
+  shell: tar xf /tmp/lazygit.tar.gz --directory /tmp
+  tags:
+    - install
+    - tools
+
+- name: Install Lazygit
+  become: true
+  shell: install /tmp/lazygit /usr/local/bin
+  tags:
+    - install
+    - tools

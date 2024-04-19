@@ -1,0 +1,27 @@
+- name: Install core packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - tar
+  tags:
+    - core
+    - install
+
+- name: Download Cargo Installer
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/sh.rustup.rs
+    mode: "0755"
+    force: "yes"
+  tags:
+    - core
+    - install
+
+- name: install rust/cargo
+  shell: /tmp/sh.rustup.rs -y
+  tags:
+    - core
+    - install

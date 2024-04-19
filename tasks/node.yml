@@ -1,0 +1,20 @@
+- name: Install node
+  apt: name=nodejs
+  tags:
+    - node
+    - install
+- name: Install NPM
+  apt: name=npm
+  tags:
+    - node
+    - install
+- name: Install "n"
+  npm: name=n global=true
+  tags:
+    - node
+    - install
+- name: Latest Node version
+  shell: n latest
+  tags:
+    - node
+    - install
