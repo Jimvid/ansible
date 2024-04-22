@@ -4,7 +4,7 @@
     - zsh
     - install
 - name: Change default shell
-  shell: chsh -s `which zsh`
+  shell: chsh -s $(which zsh)
   tags:
     - zsh
     - install
