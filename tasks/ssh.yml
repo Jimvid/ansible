@@ -24,7 +24,7 @@
     - install
 - name: Set authorized key from file
   authorized_key:
-    user: "{{ lookup('env', 'USER') }}"
+    user: "jimvid"
     state: present
     key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
   with_fileglob:

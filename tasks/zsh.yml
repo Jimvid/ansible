@@ -9,12 +9,13 @@
     - zsh
     - install
 - name: Install oh-my-zsh
-  shell: sh -c "$(curl -fsSL
-    https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
+  become: true
+  become_user: jimvid
   tags:
     - zsh
     - install
-- name: Install zsh autocomplete plugin
+- name: Install zsh autosuggestions plugin
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions

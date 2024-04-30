@@ -7,7 +7,6 @@
   pre_tasks:
     - name: Update Apt
       become: true
-      become_method: su
       apt:
         force_apt_get: true
         update_cache: true

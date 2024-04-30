@@ -5,6 +5,8 @@
     - dotfiles
     - stow
 - name: Cloning .dotfiles
+  become: true
+  become_user: jimvid
   ansible.builtin.git:
     repo: "https://github.com/Jimvid/.dotfiles.git"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
@@ -17,12 +19,16 @@
     - dotfiles
     - stow
 - name: Stow dotfiles
+  become: true
+  become_user: jimvid
   shell: cd $HOME/.dotfiles && stow . --adopt
   tags:
     - install
     - dotfiles
     - stow
 - name: Reset adopted files
+  become: true
+  become_user: jimvid
   shell: cd $HOME/.dotfiles && git reset --hard
   tags:
     - install

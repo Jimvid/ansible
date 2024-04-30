@@ -6,6 +6,7 @@
   with_items:
     - curl
     - tar
+    - cmake
   tags:
     - core
     - install
@@ -22,6 +23,8 @@
 
 - name: install rust/cargo
   shell: /tmp/sh.rustup.rs -y
+  become: true
+  become_user: jimvid
   tags:
     - core
     - install
