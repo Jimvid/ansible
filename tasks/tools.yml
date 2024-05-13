@@ -7,7 +7,6 @@
     - tmux
     - fzf
     - ripgrep
-    - i3
   tags:
     - install
     - tools

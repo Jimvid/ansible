@@ -7,9 +7,13 @@
     - curl
     - tar
     - cmake
+    - gnome-tweaks
+    - gnome-shell-extensions
   tags:
     - core
     - install
+- name: Enable shell themes
+  shell: gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 
 - name: Download Cargo Installer
   get_url:
