@@ -9,6 +9,7 @@
     - ripgrep
     - zoxide
     - rofi
+    - kitty
   tags:
     - install
     - tools
